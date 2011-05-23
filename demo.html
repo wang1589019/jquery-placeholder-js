@@ -1,0 +1,32 @@
+<html>
+	<head>		
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        	// Mock client code for testing purpose
+			$(function(){
+				// Client should be able to add another change event to the textfield
+				$("input[name='input1']").blur(function(){ alert("Blurred"); });	
+				// Client should be able to set the field's styles, without affecting place holder
+				$("textarea[name='input4']").css("color", "red");
+			});
+        </script>
+        <!-- Place holder snippet should be placed after client code -->
+        <script src="jquery.placeholder-1.0.js"></script>        
+    </head>
+    <body>
+    	<form method="get" action="">
+            Text field: <input name="input1" type="text" placeholder="This is a placeholder" />
+            <br/>
+            Text field with default value: <input name="input2" type="text" placeholder="This is a placeholder" value="This is default text" />
+            <br/>
+            Placeholder for this field is not supported:
+            <input name="input3" type="password" placeholder="This is a placeholder for password"/>
+            <br/>
+            Text area: <textarea name="input4" placeholder="This is a placeholder"></textarea>
+            <br/>
+            Text area: <textarea name="input5" placeholder="This is a placeholder">This is default text</textarea>
+            <br/>
+            Form submit button: <input type="submit" value="Click and look at the URL for how field values are submitted" />
+        </form>
+    </body>
+</html>
