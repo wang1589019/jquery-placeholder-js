@@ -1,17 +1,23 @@
 <html>
 	<head>		
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="jquery.placeholder.js"></script>
         <script type="text/javascript">
         	// Mock client code for testing purpose
 			$(function(){
 				// Client should be able to add another change event to the textfield
-				$("input[name='input1']").blur(function(){ alert("Blurred"); });	
+				$("input[name='input1']").blur(function(){ alert("Custom event triggered."); });	
 				// Client should be able to set the field's styles, without affecting place holder
 				$("textarea[name='input4']").css("color", "red");
+				
+				// Initialize placeholder
+				$.Placeholder.init();
+				// or try initialize with parameter
+				//$.Placeholder.init({ color : 'rgb(255, 255, 0)' });
 			});
         </script>
-        <!-- Place holder snippet should be placed after client code -->
-        <script src="jquery.placeholder-1.0.js"></script>        
+        
+        
     </head>
     <body>
     	<form method="get" action="">
@@ -19,7 +25,7 @@
             <br/>
             Text field with default value: <input name="input2" type="text" placeholder="This is a placeholder" value="This is default text" />
             <br/>
-            Placeholder for this field is not supported:
+            Placeholder for this field is NOT supported (you are seeing a browser default implementation):
             <input name="input3" type="password" placeholder="This is a placeholder for password"/>
             <br/>
             Text area: <textarea name="input4" placeholder="This is a placeholder"></textarea>
