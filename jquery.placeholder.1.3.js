@@ -8,12 +8,13 @@
  * Date: Sept 2011
  * Author: Otacon (byf1987_at_gmail.com)
  * Project page: https://code.google.com/p/jquery-placeholder-js/
- * Version: 1.2
+ * Version: 1.3
  * Changelog: 
-    1.2 Added semicolons to the end of function, thanks to Tony (ty*****_at_gmail.com)
+    1.3 Added cleanBeforeSubmit global function, so that user can call before submitting form by JS. thanks to Krzysztof (kot**********ztof_at_gmail.com) for contributing this idea and some codes.
+    1.2 Added semicolons to the end of function, so that the min version work. thanks to Tony (ty*****_at_gmail.com) for pointing this out and providing fix.
 	1.1	Updated the code to meet jQuery plugin format. Added parameterized init. 
  	1.0 Initial release.
- * Tested on: Chrome 10.0; IE6 (IETester); IE8 (IETester)
+ * Tested on: Chrome (latest dev version); IE6 (IETester); IE8 (IETester)
  * Known Issues: 
  * 	Placeholder for Password is currently not supported
  */
@@ -108,6 +109,19 @@
 			});
 			
 			return this;
-		}
+		},
+        
+        // When form is submitted by JS, call this before submit to avoid submitting the placeholder value
+        cleanBeforeSubmit : function(theForm){
+            // Choose all forms if not given
+            if(!theForm){
+                theForm = $("form");
+            }
+            
+            // Triggering this event will do the necessary cleanup
+            $(theForm).find("textarea, input[type='text']").trigger("parentformsubmitted");
+            
+            return theForm;
+        }
 	}
 })(jQuery);

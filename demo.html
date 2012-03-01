@@ -1,7 +1,7 @@
 <html>
 	<head>		
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-        <script src="jquery.placeholder.1.2.js"></script>
+        <script src="jquery.placeholder.1.3.min.js"></script>
         <script type="text/javascript">
         	// Mock client code for testing purpose
 			$(function(){
@@ -12,8 +12,12 @@
 				
 				// Initialize placeholder
 				$.Placeholder.init();
-				// or try initialize with parameter
+				
+                // or try initialize with parameter
 				//$.Placeholder.init({ color : 'rgb(255, 255, 0)' });
+                
+                // call this before form submit if you are submitting by JS
+                //$.Placeholder.cleanBeforeSubmit();
 			});
         </script>
         
